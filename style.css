@@ -1,0 +1,353 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #FFD54F, #FF8A65, #BA68C8);
+  min-height: 100vh;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  color: #333;
+  margin-top: 0;
+}
+
+#tituloTabla {
+  color: #333;
+  font-size: 30px;
+}
+
+.botones {
+  margin-bottom: 20px;
+}
+
+button {
+  background: #6366F1;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 18px;
+  margin: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  background: #4338CA;
+}
+
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+#contenedorEjercicios {
+  max-width: 340px;
+}
+
+.ejercicio {
+  background: white;
+  width: 320px;
+  margin: 15px auto;
+  padding: 18px;
+  border-radius: 18px;
+  font-size: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  border-right: 10px solid transparent;
+  transition: .3s;
+}
+
+.ejercicio:hover {
+  transform: translateY(-3px);
+}
+
+input {
+  width: 70px;
+  padding: 8px;
+  font-size: 20px;
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.correcto {
+  border-right-color: #22c55e;
+  background: #57d683;
+}
+
+.incorrecto {
+  border-right-color: #ef4444;
+  background: #ff9b9b;
+}
+
+.resultado {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 26px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.panel-progreso {
+  background: white;
+  width: 75px;
+  padding: 14px 8px;
+  border-radius: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.15);
+  position: sticky;
+  top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icono-progreso {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.barra {
+  width: 20px;
+  height: 310px;
+  background: #e5e7eb;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+#barraProgreso {
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to top, #4ade80, #bef264);
+  border-radius: 30px;
+  transition: height .3s;
+}
+
+#textoProgreso {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Popup pequeño del búho */
+.popup-buho {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+  background: white;
+  padding: 16px 24px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: .3s ease;
+}
+
+.popup-buho.mostrar {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.buho {
+  font-size: 38px;
+}
+
+#mensajeBuho {
+  margin: 0;
+}
+
+.correcto-popup {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.incorrecto-popup {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.inicio-popup {
+  background: #fde68a;
+  color: #92400e;
+}
+
+/* Recompensa final */
+.recompensa {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.recompensa.mostrar {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tarjeta-recompensa {
+  background: white;
+  width: 360px;
+  max-width: 90%;
+  padding: 28px;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.35);
+  text-align: center;
+  animation: aparecer .4s ease;
+}
+
+.buho-recompensa {
+  font-size: 72px;
+}
+
+#tituloRecompensa {
+  color: #4338CA;
+  margin: 10px 0;
+}
+
+#mensajeRecompensa {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+#btnSiguiente {
+  background: #22c55e;
+  margin-top: 10px;
+}
+
+#btnSiguiente:hover {
+  background: #16a34a;
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Celular */
+@media (max-width: 900px) {
+  body {
+    padding: 20px 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  #tituloTabla {
+    font-size: 24px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 9px 11px;
+    margin: 4px;
+  }
+
+  .layout {
+    gap: 10px;
+  }
+
+  #contenedorEjercicios {
+    max-width: 285px;
+  }
+
+  .ejercicio {
+    width: 285px;
+    font-size: 18px;
+    padding: 14px 10px;
+  }
+
+  input {
+    width: 55px;
+    padding: 6px;
+    font-size: 18px;
+  }
+
+  .resultado {
+    margin-left: 4px;
+    font-size: 20px;
+  }
+
+  .panel-progreso {
+    width: 42px;
+    padding: 10px 5px;
+    border-radius: 18px;
+    top: 10px;
+  }
+
+  .icono-progreso {
+    font-size: 22px;
+  }
+
+  .barra {
+    width: 12px;
+    height: 260px;
+  }
+
+  #textoProgreso {
+    font-size: 12px;
+  }
+
+  .popup-buho {
+    width: 90%;
+    justify-content: center;
+    font-size: 18px;
+    padding: 14px 18px;
+  }
+
+  .buho {
+    font-size: 32px;
+  }
+
+  .tarjeta-recompensa {
+    padding: 24px 18px;
+  }
+
+  .buho-recompensa {
+    font-size: 60px;
+  }
+
+  #mensajeRecompensa {
+    font-size: 18px;
+  }
+}

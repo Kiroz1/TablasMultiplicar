@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablas de multiplicar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>🧮 Practica las tablas de multiplicar</h1>
+
+  <div class="botones">
+    <button onclick="cargarTabla(1)">🐣 Tabla del 1</button>
+    <button onclick="cargarTabla(2)">🐶 Tabla del 2</button>
+    <button onclick="cargarTabla(3)">🚀 Tabla del 3</button>
+    <button onclick="cargarTabla(4)">🦖 Tabla del 4</button>
+    <button onclick="cargarTabla(5)">🦁 Tabla del 5</button>
+    <button onclick="cargarTabla(6)">🚗 Tabla del 6</button>
+    <button onclick="cargarTabla(7)">⚽ Tabla del 7</button>
+    <button onclick="cargarTabla(8)">🌈 Tabla del 8</button>
+    <button onclick="cargarTabla(9)">🏆 Tabla del 9</button>
+    <button onclick="cargarTabla(10)">👑 Tabla del 10</button>
+  </div>
+
+  <h2 id="tituloTabla"></h2>
+
+  <div class="layout">
+    <div id="contenedorEjercicios"></div>
+
+    <div class="panel-progreso">
+      <p class="icono-progreso">🚀</p>
+
+      <div class="barra">
+        <div id="barraProgreso"></div>
+      </div>
+
+      <p id="textoProgreso">0/10</p>
+    </div>
+  </div>
+
+  <div id="popupBuho" class="popup-buho">
+    <div class="buho">🦉</div>
+
+    <div class="contenido-popup">
+        <h2 id="tituloPopup">¡Muy bien!</h2>
+        <p id="mensajeBuho"></p>
+
+        <button id="btnSiguiente" onclick="siguienteTabla()" style="display:none;">
+            ➡️ Siguiente tabla
+        </button>
+    </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
